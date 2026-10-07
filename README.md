@@ -10,7 +10,7 @@ Data: the ULB Machine Learning Group's credit-card dataset (Dal Pozzolo et al. 2
 
 - **v1's numbers hold up, but are less certain than they look.** Its Random Forest, rerun with a fixed seed, gives precision 0.963 and recall 0.786. The test set held 98 frauds, so recall's 95% interval runs from 0.69 to 0.86. The dataset also has 1,081 exact duplicate rows, and 5 of v1's 98 test frauds had an identical twin in training.
 - **On an honest test the Random Forest is still the best ranker.** The data is deduplicated, the models train on the first 24 hours, tune on hours 24 to 36, and are tested once on the last 12 hours (114 frauds, €16,412). Average precision is 0.760 (95% interval 0.68 to 0.83), tied with gradient-boosted trees and more than 600 times the no-skill level. ROC-AUC (0.96 to 0.97 for every model) hides the differences.
-- **SMOTE helps a linear model rank (0.60 to 0.70) but makes its scores about 75 times too high.** Taken at face value they would flag 4,400 of 92,198 transactions at 0.5. Resampling is not calibration.
+- **SMOTE helps a linear model rank (0.60 to 0.70) but makes its scores about 73 times too high.** Taken at face value they would flag 4,400 of 92,198 transactions at 0.5. Resampling is not calibration.
 - **The decision rule matters more than the model.** Flag a transaction when its calibrated fraud probability times its amount exceeds the cost of a review. At €5 per review, that lowers the cost of the last 12 hours from €6,454 (v1's threshold of 0.5) to **€4,679, 27% less**, with a similar number of alerts. It catches 74.9% of fraud euros instead of 63.7%, by spending analyst time on large frauds instead of €2 ones. It holds for every review cost tested (€1 to €25).
 
 ![Policy costs](results/figures/policy_costs.png)

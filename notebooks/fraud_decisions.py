@@ -270,10 +270,10 @@ print(calib.round(5).to_string(index=False))
 R["calibration"] = calib.set_index("model").round(6).to_dict(orient="index")
 
 # %% [markdown]
-# The SMOTE-trained model's scores average 0.090 when the true fraud rate is 0.0012: about 75 times too
+# The SMOTE-trained model's scores average 0.090 when the true fraud rate is 0.0012: about 73 times too
 # high, because it was trained on a world where fraud is as common as legitimate spending. At the default
 # 0.5 threshold it would flag 4,400 of 92,198 transactions. Isotonic recalibration on the validation window
-# brings every model's average back to the observed rate. Resampling can help ranking; it must never be
+# brings every model's average close to the observed rate (0.0011 to 0.0029). Resampling can help ranking; it must never be
 # read as probability.
 
 # %% [markdown]
@@ -380,7 +380,7 @@ R["missed_by_band_c5"] = miss.to_dict(orient="index")
 # | Precision 0.974, recall 0.765 on a random split | Reproduced (0.963, 0.786 with a fixed seed); recall's 95% interval is 0.69 to 0.86, and 5 of 98 test frauds had a twin in training |
 # | Random Forest | Still the best ranker on a deduplicated, time-ordered test (average precision 0.760), tied with boosted trees |
 # | Threshold 0.5 | Flag when calibrated probability x amount exceeds the review cost: 27% lower cost at €5 per review, 74.9% of fraud euros caught instead of 63.7% |
-# | "Next steps: class weighting or resampling" | SMOTE helps a linear model rank but makes its scores 75 times too high; it is not a substitute for calibration |
+# | "Next steps: class weighting or resampling" | SMOTE helps a linear model rank but makes its scores about 73 times too high; it is not a substitute for calibration |
 #
 # **Limits.** Two days of data; the principal components V1 to V28 were computed by the data publisher
 # on the full two days, which a deployed system could not do (a leak this notebook cannot undo); the
