@@ -1,0 +1,239 @@
+{
+ "rows": 284807,
+ "frauds": 492,
+ "fraud_rate": 0.001727485630620034,
+ "duplicate_rows": 1081,
+ "duplicate_frauds": 19,
+ "hours": 47.99777777777778,
+ "fraud_euros": 60127.97,
+ "fraud_median_amount": 9.25,
+ "fraud_over100_n": 130,
+ "fraud_over100_value_share": 0.8832613174866872,
+ "fraud_zero_amount": 27,
+ "v1_repro": {
+  "precision": 0.9625,
+  "recall": 0.7857142857142857,
+  "f1": 0.8651685393258427,
+  "mcc": 0.8694303688259544,
+  "test_frauds": 98,
+  "tp": 77,
+  "fp": 3,
+  "fn": 21
+ },
+ "v1_recall_ci": [
+  0.6912866540638396,
+  0.8621896314615041
+ ],
+ "v1_precision_ci": [
+  0.8942980149834914,
+  0.9921988127342833
+ ],
+ "v1_test_rows_with_twin_in_train": 325,
+ "v1_test_frauds_with_twin": 5,
+ "train_rows": 144236,
+ "train_frauds": 272,
+ "valid_rows": 47292,
+ "valid_frauds": 87,
+ "test_rows": 92198,
+ "test_frauds": 114,
+ "ranking": {
+  "random forest (v1)": {
+   "average_precision": 0.7598,
+   "ap_lo": 0.6817,
+   "ap_hi": 0.8304,
+   "roc_auc": 0.9633
+  },
+  "boosted trees": {
+   "average_precision": 0.7503,
+   "ap_lo": 0.6694,
+   "ap_hi": 0.8227,
+   "roc_auc": 0.972
+  },
+  "logistic + SMOTE": {
+   "average_precision": 0.7021,
+   "ap_lo": 0.6144,
+   "ap_hi": 0.7815,
+   "roc_auc": 0.9647
+  },
+  "logistic": {
+   "average_precision": 0.6017,
+   "ap_lo": 0.5032,
+   "ap_hi": 0.6924,
+   "roc_auc": 0.9664
+  }
+ },
+ "no_skill_ap": 0.0012364693377296687,
+ "gb_minus_rf_ap_ci": [
+  -0.036603065704225335,
+  0.016658164295209697
+ ],
+ "calibration": {
+  "logistic": {
+   "mean_raw_score": 0.001802,
+   "mean_calibrated": 0.002891,
+   "observed_rate": 0.001236,
+   "flagged_at_0.5_raw": 85
+  },
+  "random forest (v1)": {
+   "mean_raw_score": 0.002742,
+   "mean_calibrated": 0.001094,
+   "observed_rate": 0.001236,
+   "flagged_at_0.5_raw": 100
+  },
+  "boosted trees": {
+   "mean_raw_score": 0.001466,
+   "mean_calibrated": 0.001351,
+   "observed_rate": 0.001236,
+   "flagged_at_0.5_raw": 120
+  },
+  "logistic + SMOTE": {
+   "mean_raw_score": 0.090078,
+   "mean_calibrated": 0.001286,
+   "observed_rate": 0.001236,
+   "flagged_at_0.5_raw": 4400
+  }
+ },
+ "decision_model": "random forest (v1)",
+ "decision": {
+  "c1_do nothing": {
+   "total_cost": 16411.64,
+   "missed": 16411.64,
+   "alerts": 0,
+   "euros_caught": 0.0,
+   "count_caught": 0.0
+  },
+  "c1_v1 rule (score >= 0.5)": {
+   "total_cost": 6053.729999999999,
+   "missed": 5953.729999999999,
+   "alerts": 100,
+   "euros_caught": 0.6372251645783116,
+   "count_caught": 0.6754385964912281
+  },
+  "c1_best fixed threshold": {
+   "total_cost": 4535.46,
+   "missed": 3973.46,
+   "alerts": 562,
+   "euros_caught": 0.7578876943437707,
+   "count_caught": 0.8421052631578947
+  },
+  "c1_expected-loss rule": {
+   "total_cost": 3415.8300000000004,
+   "missed": 2885.8300000000004,
+   "alerts": 530,
+   "euros_caught": 0.8241595599221041,
+   "count_caught": 0.42105263157894735
+  },
+  "c5_do nothing": {
+   "total_cost": 16411.64,
+   "missed": 16411.64,
+   "alerts": 0,
+   "euros_caught": 0.0,
+   "count_caught": 0.0
+  },
+  "c5_v1 rule (score >= 0.5)": {
+   "total_cost": 6453.729999999999,
+   "missed": 5953.729999999999,
+   "alerts": 100,
+   "euros_caught": 0.6372251645783116,
+   "count_caught": 0.6754385964912281
+  },
+  "c5_best fixed threshold": {
+   "total_cost": 6475.73,
+   "missed": 5950.73,
+   "alerts": 105,
+   "euros_caught": 0.637407961666232,
+   "count_caught": 0.6929824561403509
+  },
+  "c5_expected-loss rule": {
+   "total_cost": 4678.6900000000005,
+   "missed": 4118.6900000000005,
+   "alerts": 112,
+   "euros_caught": 0.749038487317538,
+   "count_caught": 0.3508771929824561
+  },
+  "c10_do nothing": {
+   "total_cost": 16411.64,
+   "missed": 16411.64,
+   "alerts": 0,
+   "euros_caught": 0.0,
+   "count_caught": 0.0
+  },
+  "c10_v1 rule (score >= 0.5)": {
+   "total_cost": 6953.729999999999,
+   "missed": 5953.729999999999,
+   "alerts": 100,
+   "euros_caught": 0.6372251645783116,
+   "count_caught": 0.6754385964912281
+  },
+  "c10_best fixed threshold": {
+   "total_cost": 7000.73,
+   "missed": 5950.73,
+   "alerts": 105,
+   "euros_caught": 0.637407961666232,
+   "count_caught": 0.6929824561403509
+  },
+  "c10_expected-loss rule": {
+   "total_cost": 4822.63,
+   "missed": 4142.63,
+   "alerts": 68,
+   "euros_caught": 0.7475797665559323,
+   "count_caught": 0.32456140350877194
+  },
+  "c25_do nothing": {
+   "total_cost": 16411.64,
+   "missed": 16411.64,
+   "alerts": 0,
+   "euros_caught": 0.0,
+   "count_caught": 0.0
+  },
+  "c25_v1 rule (score >= 0.5)": {
+   "total_cost": 8453.73,
+   "missed": 5953.729999999999,
+   "alerts": 100,
+   "euros_caught": 0.6372251645783116,
+   "count_caught": 0.6754385964912281
+  },
+  "c25_best fixed threshold": {
+   "total_cost": 11529.79,
+   "missed": 9379.79,
+   "alerts": 86,
+   "euros_caught": 0.42846723423131383,
+   "count_caught": 0.6140350877192983
+  },
+  "c25_expected-loss rule": {
+   "total_cost": 5733.429999999999,
+   "missed": 4558.429999999999,
+   "alerts": 47,
+   "euros_caught": 0.7222440901701476,
+   "count_caught": 0.2894736842105263
+  }
+ },
+ "test_fraud_euros": 16411.64,
+ "missed_by_band_c5": {
+  "\u20ac0": {
+   "frauds": 9,
+   "caught": 0,
+   "value": 0.0
+  },
+  "\u20ac0-10": {
+   "frauds": 54,
+   "caught": 3,
+   "value": 123.12
+  },
+  "\u20ac10-100": {
+   "frauds": 18,
+   "caught": 12,
+   "value": 836.0999999999999
+  },
+  "\u20ac100-500": {
+   "frauds": 22,
+   "caught": 17,
+   "value": 5524.84
+  },
+  "over \u20ac500": {
+   "frauds": 11,
+   "caught": 8,
+   "value": 9927.58
+  }
+ }
+}

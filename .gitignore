@@ -1,0 +1,11 @@
+# Data is fetched by scripts/get_data.py (150 MB; Kaggle Database Contents License)
+data/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
