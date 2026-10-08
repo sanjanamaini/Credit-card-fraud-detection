@@ -2,6 +2,15 @@
 
 **284,807 card transactions, 492 frauds. Version 1 asked "is this fraud?" and reported precision 0.974 and recall 0.765. Version 2 asks what a fraud team actually needs: which alerts are worth an analyst's time, judged in euros, on transactions the model has never seen.**
 
+**At a glance**
+
+| | |
+|---|---|
+| **Question** | Which fraud alerts are worth an analyst's time, judged in euros? |
+| **Data** | ULB credit-card dataset: 284,807 transactions, 492 frauds |
+| **Result** | 0.76 average precision on a time-ordered split; an expected-loss rule cut cost 27% against the 0.5 cut-off and raised fraud value caught from 64% to 75% |
+| **Stack** | Python, scikit-learn, pandas |
+
 Data: the ULB Machine Learning Group's credit-card dataset (Dal Pozzolo et al. 2015; [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)), two days of European card traffic in September 2013. `V1` to `V28` are principal components of undisclosed features; `Time` and `Amount` (euros) are raw.
 
 **Notebook:** [`notebooks/fraud_decisions.ipynb`](notebooks/fraud_decisions.ipynb), step by step, every number printed by a cell.
