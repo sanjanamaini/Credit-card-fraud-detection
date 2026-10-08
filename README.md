@@ -10,6 +10,7 @@
 | **Data** | ULB credit-card dataset: 284,807 transactions, 492 frauds |
 | **Result** | 0.76 average precision on a time-ordered split; an expected-loss rule cut cost 27% against the 0.5 cut-off and raised fraud value caught from 64% to 75% |
 | **Stack** | Python, scikit-learn, pandas |
+| **Project page** | [sanjanamaini.github.io/fraud](https://sanjanamaini.github.io/fraud/?utm_source=github&utm_medium=readme&utm_campaign=fraud) |
 
 Data: the ULB Machine Learning Group's credit-card dataset (Dal Pozzolo et al. 2015; [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)), two days of European card traffic in September 2013. `V1` to `V28` are principal components of undisclosed features; `Time` and `Amount` (euros) are raw.
 
